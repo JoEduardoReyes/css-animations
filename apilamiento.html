@@ -7,8 +7,7 @@
     <title>Contexto de apilamiento</title>
     <style>
       :root {
-        --shadow: 5px 5px 10px rgba(0, 0, 0, 0.3),
-          2px 2px 3px rgba(0, 0, 0, 0.8);
+        --shadow: 0 0 10px rgba(0, 0, 0, 0.5), 2px 2px 3px rgba(0, 0, 0, 0.8);
       }
       body {
         margin: 0;
@@ -104,15 +103,39 @@
       }
       /* bushes */
       .bush {
-        background-color: green;
         width: 80%;
         height: 120px;
-        border-top-left-radius: 50px;
-        border-top-right-radius: 50px;
         bottom: 0;
-        box-shadow: var(--shadow);
       }
-
+      .bush__center {
+        background-color: green;
+        height: 80%;
+        width: 60%;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        margin: 0 auto;
+      }
+      .circle {
+        border-radius: 100%;
+        background-color: green;
+        position: absolute;
+        height: 100%;
+        width: 50%;
+      }
+      .circle__left {
+        left: -10px;
+      }
+      .circle__right {
+        right: -10px;
+      }
+      .circle__top {
+        top: -60px;
+        left: -5px;
+        right: 0;
+        margin: 0 auto;
+      }
       /* position */
       .layer-1 {
         bottom: 380px;
@@ -219,7 +242,7 @@
       </div>
       <!-- bushes -->
       <div class="layer-8 bush">
-        <div class="center"></div>
+        <div class="bush__center"></div>
         <div class="circle circle__top"></div>
         <div class="circle circle__left"></div>
         <div class="circle circle__right"></div>
