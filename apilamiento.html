@@ -68,7 +68,7 @@
         width: 4px;
         height: 4px;
         position: absolute;
-        top: 15px;
+        top: 20px;
       }
       .head__eye--right {
         right: 30px;
@@ -136,6 +136,10 @@
         right: 0;
         margin: 0 auto;
       }
+      .bush__light .circle,
+      .bush__light .bush__center {
+        background-color: rgb(17, 166, 17);
+      }
       /* position */
       .layer-1 {
         bottom: 380px;
@@ -183,10 +187,12 @@
       .layer-9 {
         z-index: 8;
         left: -50%;
+        bottom: -10px;
       }
       .layer-10 {
         z-index: 8;
         right: -50%;
+        bottom: -10px;
       }
     </style>
   </head>
@@ -242,6 +248,18 @@
       </div>
       <!-- bushes -->
       <div class="layer-8 bush">
+        <div class="bush__center"></div>
+        <div class="circle circle__top"></div>
+        <div class="circle circle__left"></div>
+        <div class="circle circle__right"></div>
+      </div>
+      <div class="layer-9 bush bush__light">
+        <div class="bush__center"></div>
+        <div class="circle circle__top"></div>
+        <div class="circle circle__left"></div>
+        <div class="circle circle__right"></div>
+      </div>
+      <div class="layer-10 bush bush__light">
         <div class="bush__center"></div>
         <div class="circle circle__top"></div>
         <div class="circle circle__left"></div>
