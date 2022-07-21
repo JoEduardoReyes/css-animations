@@ -28,29 +28,31 @@
         position: absolute;
         box-sizing: border-box;
         /* border: black 1px solid; */
-        box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3),
-          2px 2px 3px rgba(0, 0, 0, 0.8);
       }
-      .conejo {
+      .bunny {
         height: 80px;
         width: 80px;
-        background: white;
+        background: rgba(255, 255, 255, 0.523);
       }
-      .tierra {
+      .dirt {
         background: #9b7653;
         width: 220px;
         height: 40%;
         border-top: green 5px solid;
         border-top-left-radius: 25px;
         border-top-right-radius: 25px;
+        box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3),
+          2px 2px 3px rgba(0, 0, 0, 0.8);
       }
-      .arbusto {
+      .bush {
         background-color: green;
         width: 80%;
         height: 120px;
         border-top-left-radius: 50px;
         border-top-right-radius: 50px;
         bottom: 0;
+        box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3),
+          2px 2px 3px rgba(0, 0, 0, 0.8);
       }
       .layer-1 {
         bottom: 380px;
@@ -59,7 +61,6 @@
       }
       .layer-2 {
         z-index: 1;
-        background: white;
         bottom: 380px;
         left: 60px;
       }
@@ -104,20 +105,69 @@
         z-index: 8;
         right: -50%;
       }
+      /* Estilos detallados */
+      .ear {
+        box-sizing: border-box;
+        background-color: pink;
+        border: 5px solid white;
+        border-radius: 90%;
+        width: 20px;
+        height: 50px;
+        position: absolute;
+        top: -20px;
+      }
+      .ear-left {
+        left: 10px;
+        transform: rotate(-20deg);
+      }
+      .ear-right {
+        right: 10px;
+        transform: rotate(20deg);
+      }
+      .head {
+        background-color: white;
+        border-radius: 50%;
+        height: 80px;
+        position: absolute;
+        top: 10px;
+        width: 100%;
+      }
+      .head__eye {
+        background: grey;
+        border-radius: 100%;
+        width: 4px;
+        height: 4px;
+        position: absolute;
+        top: 15px;
+      }
+      .head__eye--right {
+        right: 30px;
+      }
+      .head__eye--left {
+        left: 30px;
+      }
     </style>
   </head>
   <body>
     <div class="phone">
-      <div class="layer-1 conejo"></div>
-      <div class="layer-2 conejo"></div>
-      <div class="layer-3 tierra"></div>
-      <div class="layer-4 conejo"></div>
-      <div class="layer-5 tierra"></div>
-      <div class="layer-6 conejo"></div>
-      <div class="layer-7 tierra"></div>
-      <div class="layer-8 arbusto"></div>
-      <div class="layer-9 arbusto"></div>
-      <div class="layer-10 arbusto"></div>
+      <!-- First bunny -->
+      <div class="layer-1 bunny">
+        <div class="ear ear-left"></div>
+        <div class="ear ear-right"></div>
+        <div class="head">
+          <div class="head__eye head__eye--left"></div>
+          <div class="head__eye head__eye--right"></div>
+        </div>
+      </div>
+      <div class="layer-2 bunny"></div>
+      <div class="layer-3 dirt"></div>
+      <div class="layer-4 bunny"></div>
+      <div class="layer-5 dirt"></div>
+      <div class="layer-6 bunny"></div>
+      <div class="layer-7 dirt"></div>
+      <div class="layer-8 bush"></div>
+      <div class="layer-9 bush"></div>
+      <div class="layer-10 bush"></div>
     </div>
   </body>
 </html>
