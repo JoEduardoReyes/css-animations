@@ -6,6 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Contexto de apilamiento</title>
     <style>
+      :root {
+        --shadow: 5px 5px 10px rgba(0, 0, 0, 0.3),
+          2px 2px 3px rgba(0, 0, 0, 0.8);
+      }
       body {
         margin: 0;
         height: 100vh;
@@ -27,23 +31,78 @@
       .phone > div {
         position: absolute;
         box-sizing: border-box;
-        /* border: black 1px solid; */
       }
+      /* Bunnies */
       .bunny {
         height: 80px;
         width: 80px;
-        background: rgba(255, 255, 255, 0.523);
       }
+      .ear {
+        box-sizing: border-box;
+        background-color: pink;
+        border: 5px solid white;
+        border-radius: 90%;
+        width: 20px;
+        height: 50px;
+        position: absolute;
+        top: -20px;
+      }
+      .ear-left {
+        left: 10px;
+        transform: rotate(-20deg);
+      }
+      .ear-right {
+        right: 10px;
+        transform: rotate(20deg);
+      }
+      .head {
+        background-color: white;
+        border-radius: 50%;
+        height: 80px;
+        position: absolute;
+        top: 10px;
+        width: 100%;
+      }
+      .head__eye {
+        background: grey;
+        border-radius: 100%;
+        width: 4px;
+        height: 4px;
+        position: absolute;
+        top: 15px;
+      }
+      .head__eye--right {
+        right: 30px;
+      }
+      .head__eye--left {
+        left: 30px;
+      }
+      /* dirt */
       .dirt {
         background: #9b7653;
         width: 220px;
         height: 40%;
-        border-top: green 5px solid;
         border-top-left-radius: 25px;
         border-top-right-radius: 25px;
-        box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3),
-          2px 2px 3px rgba(0, 0, 0, 0.8);
+        box-shadow: var(--shadow);
+        overflow: hidden;
       }
+      .dirt_top {
+        background: linear-gradient(135deg, green 25%, transparent 25%) -30px -5px,
+          linear-gradient(-135deg, green 25%, transparent 25%) -30px -5px,
+          linear-gradient(45deg, green 25%, transparent 25%) 0 -5px,
+          linear-gradient(-45deg, green 25%, transparent 25%) 0 -5px,
+          linear-gradient(135deg, #634b35 25%, transparent 25%) -30px 10px,
+          linear-gradient(-135deg, #634b35 25%, transparent 25%) -30px 10px,
+          linear-gradient(45deg, #634b35 25%, transparent 25%) 0 10px,
+          linear-gradient(-45deg, #634b35 25%, transparent 25%) 0 10px;
+        background-size: 60px 100px;
+        height: 60px;
+        width: 100%;
+        box-sizing: border-box;
+        border-top: 10px solid transparent;
+      }
+      /* bushes */
       .bush {
         background-color: green;
         width: 80%;
@@ -51,9 +110,10 @@
         border-top-left-radius: 50px;
         border-top-right-radius: 50px;
         bottom: 0;
-        box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3),
-          2px 2px 3px rgba(0, 0, 0, 0.8);
+        box-shadow: var(--shadow);
       }
+
+      /* position */
       .layer-1 {
         bottom: 380px;
         z-index: 1;
@@ -105,47 +165,6 @@
         z-index: 8;
         right: -50%;
       }
-      /* Estilos detallados */
-      .ear {
-        box-sizing: border-box;
-        background-color: pink;
-        border: 5px solid white;
-        border-radius: 90%;
-        width: 20px;
-        height: 50px;
-        position: absolute;
-        top: -20px;
-      }
-      .ear-left {
-        left: 10px;
-        transform: rotate(-20deg);
-      }
-      .ear-right {
-        right: 10px;
-        transform: rotate(20deg);
-      }
-      .head {
-        background-color: white;
-        border-radius: 50%;
-        height: 80px;
-        position: absolute;
-        top: 10px;
-        width: 100%;
-      }
-      .head__eye {
-        background: grey;
-        border-radius: 100%;
-        width: 4px;
-        height: 4px;
-        position: absolute;
-        top: 15px;
-      }
-      .head__eye--right {
-        right: 30px;
-      }
-      .head__eye--left {
-        left: 30px;
-      }
     </style>
   </head>
   <body>
@@ -159,6 +178,7 @@
           <div class="head__eye head__eye--right"></div>
         </div>
       </div>
+      <!-- second bunny -->
       <div class="layer-2 bunny">
         <div class="ear ear-left"></div>
         <div class="ear ear-right"></div>
@@ -167,7 +187,11 @@
           <div class="head__eye head__eye--right"></div>
         </div>
       </div>
-      <div class="layer-3 dirt"></div>
+      <!-- first dirt -->
+      <div class="layer-3 dirt">
+        <div class="dirt_top"></div>
+      </div>
+      <!-- third bunny -->
       <div class="layer-4 bunny">
         <div class="ear ear-left"></div>
         <div class="ear ear-right"></div>
@@ -176,7 +200,11 @@
           <div class="head__eye head__eye--right"></div>
         </div>
       </div>
-      <div class="layer-5 dirt"></div>
+      <!-- second dirt -->
+      <div class="layer-5 dirt">
+        <div class="dirt_top"></div>
+      </div>
+      <!-- fourth bunny -->
       <div class="layer-6 bunny">
         <div class="ear ear-left"></div>
         <div class="ear ear-right"></div>
@@ -185,10 +213,17 @@
           <div class="head__eye head__eye--right"></div>
         </div>
       </div>
-      <div class="layer-7 dirt"></div>
-      <div class="layer-8 bush"></div>
-      <div class="layer-9 bush"></div>
-      <div class="layer-10 bush"></div>
+      <!-- third dirt -->
+      <div class="layer-7 dirt">
+        <div class="dirt_top"></div>
+      </div>
+      <!-- bushes -->
+      <div class="layer-8 bush">
+        <div class="center"></div>
+        <div class="circle circle__top"></div>
+        <div class="circle circle__left"></div>
+        <div class="circle circle__right"></div>
+      </div>
     </div>
   </body>
 </html>
